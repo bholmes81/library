@@ -1,7 +1,7 @@
 package com.holmes.library.model;
 
 public class UserRequest {
-  
+
   private User user;
 
   public User getUser() {

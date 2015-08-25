@@ -18,13 +18,14 @@ public class UserManagerService implements UserManager {
     this.userDao = userDao;
   }
 
+  @Override
   public UserResponse fetchUserById(UserRequest request) {
-    UserResponse response = new UserResponse();
+    final UserResponse response = new UserResponse();
 
     try {
       response.setUsers(Arrays.asList(getUserDao().fetchUserById(
-        request.getUser().getId())));
-    } catch (Exception e) {
+          request.getUser().getId())));
+    } catch (final Exception e) {
       response.setSuccess(false);
       response.setErrorMessage(e.getClass() + ": " + e.getMessage());
     }
@@ -32,12 +33,13 @@ public class UserManagerService implements UserManager {
     return response;
   }
 
+  @Override
   public UserResponse fetchAllUsers(UserRequest request) {
-    UserResponse response = new UserResponse();
+    final UserResponse response = new UserResponse();
 
     try {
       response.setUsers(getUserDao().fetchAllUsers());
-    } catch (Exception e) {
+    } catch (final Exception e) {
       response.setSuccess(false);
       response.setErrorMessage(e.getClass() + ": " + e.getMessage());
     }
@@ -45,12 +47,13 @@ public class UserManagerService implements UserManager {
     return response;
   }
 
+  @Override
   public UserResponse insertUser(UserRequest request) {
-    UserResponse response = new UserResponse();
+    final UserResponse response = new UserResponse();
 
     try {
       getUserDao().insertUser(request.getUser());
-    } catch (Exception e) {
+    } catch (final Exception e) {
       response.setSuccess(false);
       response.setErrorMessage(e.getClass() + ": " + e.getMessage());
     }
@@ -58,12 +61,13 @@ public class UserManagerService implements UserManager {
     return response;
   }
 
+  @Override
   public UserResponse updateUser(UserRequest request) {
-    UserResponse response = new UserResponse();
+    final UserResponse response = new UserResponse();
 
     try {
       getUserDao().updateUser(request.getUser());
-    } catch (Exception e) {
+    } catch (final Exception e) {
       response.setSuccess(false);
       response.setErrorMessage(e.getClass() + ": " + e.getMessage());
     }
@@ -71,12 +75,13 @@ public class UserManagerService implements UserManager {
     return response;
   }
 
+  @Override
   public UserResponse deleteUser(UserRequest request) {
-    UserResponse response = new UserResponse();
+    final UserResponse response = new UserResponse();
 
     try {
       getUserDao().deleteUser(request.getUser());
-    } catch (Exception e) {
+    } catch (final Exception e) {
       response.setSuccess(false);
       response.setErrorMessage(e.getClass() + ": " + e.getMessage());
     }

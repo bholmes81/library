@@ -10,8 +10,7 @@ import com.holmes.library.model.UserResponse;
 
 @Consumes("application/json")
 @Produces("application/json")
-public interface UserManager
-{
+public interface UserManager {
   @POST
   @Path("/fetchUserById/")
   public UserResponse fetchUserById(UserRequest request);

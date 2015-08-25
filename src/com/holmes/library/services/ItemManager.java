@@ -10,12 +10,11 @@ import com.holmes.library.model.ItemResponse;
 
 @Consumes("application/json")
 @Produces("application/json")
-public interface ItemManager
-{
+public interface ItemManager {
   @POST
   @Path("/fetchItemByName/")
   public ItemResponse fetchItemByName(ItemRequest request);
-  
+
   @POST
   @Path("/fetchItemById/")
   public ItemResponse fetchItemById(ItemRequest request);

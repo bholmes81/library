@@ -10,10 +10,10 @@ public class UserManagerMemoryDao implements UserManagerDao {
 
   private int nextUserId = 0;
   List<User> users = new ArrayList<User>();
-  
+
   @Override
   public User fetchUserById(Integer id) {
-    for (User user : users) {
+    for (final User user : users) {
       if (user.getId() == id) {
         return user;
       }
@@ -34,7 +34,7 @@ public class UserManagerMemoryDao implements UserManagerDao {
 
   @Override
   public void updateUser(User user) {
-    User editUser = fetchUserById(user.getId());
+    final User editUser = fetchUserById(user.getId());
     editUser.setBirthDate(user.getBirthDate());
     editUser.setCity(user.getCity());
     editUser.setEmail(user.getEmail());
@@ -44,9 +44,8 @@ public class UserManagerMemoryDao implements UserManagerDao {
 
   @Override
   public void deleteUser(User user) {
-    User delUser = fetchUserById(user.getId());
+    final User delUser = fetchUserById(user.getId());
     users.remove(delUser);
   }
 
 }
-
