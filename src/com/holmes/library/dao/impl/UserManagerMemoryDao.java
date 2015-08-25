@@ -46,7 +46,6 @@ public class UserManagerMemoryDao implements UserManagerDao {
   public void deleteUser(User user) {
     User delUser = fetchUserById(user.getId());
     users.remove(delUser);
-
   }
 
 }

@@ -7,31 +7,24 @@ import com.holmes.library.model.UserRequest;
 import com.holmes.library.model.UserResponse;
 import com.holmes.library.services.UserManager;
 
-public class UserManagerService implements UserManager
-{
+public class UserManagerService implements UserManager {
   private UserManagerDao userDao;
 
-  public UserManagerDao getUserDao()
-  {
+  public UserManagerDao getUserDao() {
     return userDao;
   }
 
-  public void setUserDao(UserManagerDao userDao)
-  {
+  public void setUserDao(UserManagerDao userDao) {
     this.userDao = userDao;
   }
 
-  public UserResponse fetchUserById(UserRequest request)
-  {
+  public UserResponse fetchUserById(UserRequest request) {
     UserResponse response = new UserResponse();
 
-    try
-    {
+    try {
       response.setUsers(Arrays.asList(getUserDao().fetchUserById(
         request.getUser().getId())));
-    }
-    catch (Exception e)
-    {
+    } catch (Exception e) {
       response.setSuccess(false);
       response.setErrorMessage(e.getClass() + ": " + e.getMessage());
     }
@@ -39,16 +32,12 @@ public class UserManagerService implements UserManager
     return response;
   }
 
-  public UserResponse fetchAllUsers(UserRequest request)
-  {
+  public UserResponse fetchAllUsers(UserRequest request) {
     UserResponse response = new UserResponse();
 
-    try
-    {
+    try {
       response.setUsers(getUserDao().fetchAllUsers());
-    }
-    catch (Exception e)
-    {
+    } catch (Exception e) {
       response.setSuccess(false);
       response.setErrorMessage(e.getClass() + ": " + e.getMessage());
     }
@@ -56,16 +45,12 @@ public class UserManagerService implements UserManager
     return response;
   }
 
-  public UserResponse insertUser(UserRequest request)
-  {
+  public UserResponse insertUser(UserRequest request) {
     UserResponse response = new UserResponse();
 
-    try
-    {
+    try {
       getUserDao().insertUser(request.getUser());
-    }
-    catch (Exception e)
-    {
+    } catch (Exception e) {
       response.setSuccess(false);
       response.setErrorMessage(e.getClass() + ": " + e.getMessage());
     }
@@ -73,16 +58,12 @@ public class UserManagerService implements UserManager
     return response;
   }
 
-  public UserResponse updateUser(UserRequest request)
-  {
+  public UserResponse updateUser(UserRequest request) {
     UserResponse response = new UserResponse();
 
-    try
-    {
+    try {
       getUserDao().updateUser(request.getUser());
-    }
-    catch (Exception e)
-    {
+    } catch (Exception e) {
       response.setSuccess(false);
       response.setErrorMessage(e.getClass() + ": " + e.getMessage());
     }
@@ -90,16 +71,12 @@ public class UserManagerService implements UserManager
     return response;
   }
 
-  public UserResponse deleteUser(UserRequest request)
-  {
+  public UserResponse deleteUser(UserRequest request) {
     UserResponse response = new UserResponse();
 
-    try
-    {
+    try {
       getUserDao().deleteUser(request.getUser());
-    }
-    catch (Exception e)
-    {
+    } catch (Exception e) {
       response.setSuccess(false);
       response.setErrorMessage(e.getClass() + ": " + e.getMessage());
     }
